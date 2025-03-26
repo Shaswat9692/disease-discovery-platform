@@ -19,7 +19,7 @@ interface Hospital {
   };
 }
 
-// Bangalore hospitals database with specializations and coordinates
+// Bangalore hospitals database with specializations and coordinatess
 const bangaloreHospitals: Record<string, Hospital[]> = {
   "general": [
     {
