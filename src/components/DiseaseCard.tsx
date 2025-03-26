@@ -48,7 +48,7 @@ const DiseaseCard: React.FC<DiseaseCardProps> = ({ disease, className }) => {
   const iconColor = getIconColor(bgColor);
 
   // Determine if we should show an image background
-  const hasBackgroundImage = disease.imagePath && disease.id === "common-cold";
+  const hasBackgroundImage = disease.imageUrl && disease.id === "common-cold";
 
   return (
     <div 
@@ -66,7 +66,7 @@ const DiseaseCard: React.FC<DiseaseCardProps> = ({ disease, className }) => {
           "relative overflow-hidden"
         )}
         style={hasBackgroundImage ? {
-          backgroundImage: `url(${disease.imagePath})`,
+          backgroundImage: `url(${disease.imageUrl})`,
           backgroundSize: 'cover',
           backgroundPosition: 'center'
         } : {}}
