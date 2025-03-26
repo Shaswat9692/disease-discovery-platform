@@ -47,6 +47,9 @@ const DiseaseCard: React.FC<DiseaseCardProps> = ({ disease, className }) => {
   const bgColor = generatePastelColor(disease.name);
   const iconColor = getIconColor(bgColor);
 
+  // Determine if we should show an image background
+  const hasBackgroundImage = disease.imagePath && disease.id === "common-cold";
+
   return (
     <div 
       className={cn(
@@ -56,16 +59,43 @@ const DiseaseCard: React.FC<DiseaseCardProps> = ({ disease, className }) => {
       onClick={handleClick}
     >
       {/* Card header */}
-      <div className={cn("p-4 rounded-t-2xl", bgColor)}>
-        <div className="flex justify-between items-center">
-          <span className="text-xs font-medium px-2 py-1 rounded-full bg-white/30 backdrop-blur-sm">
+      <div 
+        className={cn(
+          "p-4 rounded-t-2xl", 
+          hasBackgroundImage ? "" : bgColor,
+          "relative overflow-hidden"
+        )}
+        style={hasBackgroundImage ? {
+          backgroundImage: `url(${disease.imagePath})`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center'
+        } : {}}
+      >
+        {hasBackgroundImage && (
+          <div className="absolute inset-0 bg-black/30"></div>
+        )}
+        
+        <div className="flex justify-between items-center relative z-10">
+          <span className={cn(
+            "text-xs font-medium px-2 py-1 rounded-full",
+            hasBackgroundImage ? "bg-white/50 text-black" : "bg-white/30 backdrop-blur-sm"
+          )}>
             {disease.category}
           </span>
-          <div className={cn("h-8 w-8 rounded-full flex items-center justify-center", iconColor, "bg-white/40 backdrop-blur-sm")}>
+          <div className={cn(
+            "h-8 w-8 rounded-full flex items-center justify-center", 
+            iconColor, 
+            hasBackgroundImage ? "bg-white/60" : "bg-white/40 backdrop-blur-sm"
+          )}>
             <ArrowRight className="h-4 w-4 transform group-hover:translate-x-1 transition-transform duration-300" />
           </div>
         </div>
-        <h3 className="mt-3 text-lg font-semibold">{disease.name}</h3>
+        <h3 className={cn(
+          "mt-3 text-lg font-semibold relative z-10",
+          hasBackgroundImage ? "text-white" : ""
+        )}>
+          {disease.name}
+        </h3>
       </div>
 
       {/* Card body */}

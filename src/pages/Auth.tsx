@@ -64,8 +64,12 @@ const Auth: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-health-light-blue/30 to-health-light-teal/20 flex items-center justify-center p-4">
-      <div className="max-w-md w-full bg-white rounded-xl shadow-lg p-6 md:p-8 animate-fade-in">
+    <div 
+      className="min-h-screen flex items-center justify-center p-4 bg-cover bg-center" 
+      style={{ backgroundImage: 'url("/lovable-uploads/c25655a4-8a6c-4b87-851c-32d8f1756ecc.png")' }}
+    >
+      <div className="absolute inset-0 bg-black/40"></div>
+      <div className="max-w-md w-full bg-white/90 backdrop-blur-sm rounded-xl shadow-lg p-6 md:p-8 animate-fade-in relative z-10">
         <div className="text-center mb-6">
           <div className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-health-blue/10 mb-4">
             <MediKit className="h-6 w-6 text-health-blue" />

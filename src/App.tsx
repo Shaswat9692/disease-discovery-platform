@@ -1,3 +1,4 @@
+
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -9,7 +10,8 @@ import DiseaseDetail from "./pages/DiseaseDetail";
 import SearchResults from "./pages/SearchResults";
 import Categories from "./pages/Categories";
 import Auth from "./pages/Auth";
-import About from "./pages/About"; // ✅ Correctly imported About.tsx
+import About from "./pages/About";
+import Contact from "./pages/Contact"; // Add the import for Contact page
 import { useEffect, useState } from "react";
 
 const queryClient = new QueryClient();
@@ -47,7 +49,8 @@ const App = () => (
           <Route path="/disease/:id" element={<ProtectedRoute><DiseaseDetail /></ProtectedRoute>} />
           <Route path="/search" element={<ProtectedRoute><SearchResults /></ProtectedRoute>} />
           <Route path="/categories" element={<ProtectedRoute><Categories /></ProtectedRoute>} />
-          <Route path="/about" element={<ProtectedRoute><About /></ProtectedRoute>} /> {/* ✅ Fixed and connected About page */}
+          <Route path="/about" element={<ProtectedRoute><About /></ProtectedRoute>} />
+          <Route path="/contact" element={<ProtectedRoute><Contact /></ProtectedRoute>} /> {/* Add Contact route */}
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
@@ -56,4 +59,3 @@ const App = () => (
 );
 
 export default App;
-
