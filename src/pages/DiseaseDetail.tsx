@@ -9,7 +9,8 @@ import {
   Check, 
   Pill, 
   Thermometer,
-  Info
+  Info,
+  Clock
 } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import diseasesData from '@/data/diseasesData';
@@ -173,7 +174,7 @@ const DiseaseDetail: React.FC = () => {
                   {disease.medications.map((medication, index) => (
                     <div key={index} className="p-4 border border-border rounded-lg bg-card">
                       <h4 className="font-medium mb-2">{medication.name}</h4>
-                      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                      <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                         <div>
                           <p className="text-xs text-muted-foreground mb-1">Typical Dosage</p>
                           <p className="text-sm">{medication.dosage}</p>
@@ -181,6 +182,13 @@ const DiseaseDetail: React.FC = () => {
                         <div>
                           <p className="text-xs text-muted-foreground mb-1">Purpose</p>
                           <p className="text-sm">{medication.description}</p>
+                        </div>
+                        <div className="flex items-start gap-2">
+                          <Clock className="h-4 w-4 text-health-purple mt-0.5" />
+                          <div>
+                            <p className="text-xs text-muted-foreground mb-1">When to Take</p>
+                            <p className="text-sm">{medication.timing || "As directed by physician"}</p>
+                          </div>
                         </div>
                       </div>
                     </div>

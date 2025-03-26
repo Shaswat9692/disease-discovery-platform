@@ -41,13 +41,13 @@ const Categories: React.FC = () => {
         <div className="container mx-auto max-w-6xl">
           <h1 className="text-3xl font-bold mb-8">Disease Categories</h1>
           
-          <div className="flex flex-wrap gap-2 mb-10">
+          <div className="flex flex-wrap gap-2 mb-10 overflow-x-auto pb-2">
             {categories.map((category) => (
               <button
                 key={category}
                 onClick={() => setSelectedCategory(category)}
                 className={cn(
-                  "px-4 py-2 rounded-full text-sm transition-colors",
+                  "px-4 py-2 rounded-full text-sm transition-colors whitespace-nowrap",
                   selectedCategory === category
                     ? "bg-primary text-primary-foreground"
                     : "bg-secondary text-secondary-foreground hover:bg-secondary/80"
