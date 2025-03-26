@@ -28,6 +28,9 @@ const Navbar: React.FC = () => {
           <Link to="/about" className="px-4 py-2 text-sm font-medium transition-colors hover:text-primary">
             About
           </Link>
+          <Link to="/contact" className="px-4 py-2 text-sm font-medium transition-colors hover:text-primary">
+            Contact
+          </Link>
           <div className="ml-4">
             <Link to="/search" className="flex items-center gap-1 rounded-full bg-secondary px-3 py-1.5 text-sm text-muted-foreground transition-colors hover:bg-secondary/80">
               <Search className="h-4 w-4" />
