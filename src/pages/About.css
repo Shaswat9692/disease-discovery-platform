@@ -8,7 +8,7 @@
 body, html {
   height: 100%;
   font-family: Arial, sans-serif;
-  background: url('/images/team_logo.jpg') no-repeat center center/cover;
+  background: url('/src/data/ascets/WhatsApp Image 2025-03-26 at 15.21.35_c94ebabd.jpg') no-repeat center center/cover;
   overflow-y: auto;
   min-height: 100vh;
 }
